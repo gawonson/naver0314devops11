@@ -25,7 +25,7 @@ public class Ex3_Output {
 		System.out.printf("**%s**\n",msg);
 		System.out.printf("날짜:%d-%d-%d\n",year,month,day);
 		System.out.printf("날짜:%2d-%2d-%2d\n",year,month,day);//2칸중 비어있는 곳이 공백을 채워짐
-		System.out.printf("날짜:%02d-%02d-%02d\n",year,month,day);//2칸중 비어있는 곳이 0으로 채워짐
+		System.out.printf("날짜:%02d-%02d-%02d\n",year,month,day);//2칸중 비어있는 곳이 0으로 채워짐[003?]
 		System.out.printf("나의 혈액형은 %c입니다\n",blood);
 		System.out.printf("평균:%f\n",avg);//%f:소숫점 이하가 6자리로 출력
 		System.out.printf("평균:%3.1f\n",avg);//%3.1 : 전체자리수 3자리(모자라도 상관없음), 소수점이하 자리수 1자리
