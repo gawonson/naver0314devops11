@@ -15,7 +15,7 @@ public class Ex14_ForMunje {
 			score=sc.nextInt();
 			if(score>100||score<1)
 				continue;
-			count+=1;			
+			count++;//== count +=1			
 			sum+=score;
 		}
 		
