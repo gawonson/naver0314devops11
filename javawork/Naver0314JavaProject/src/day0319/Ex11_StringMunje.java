@@ -27,8 +27,6 @@ public class Ex11_StringMunje {
 				b++;
 			else if ('0'<=ch&&ch<='9')
 				c++;
-
-
 		}
 		System.out.println("소문자:"+b);
 		System.out.println("대문자:"+a);

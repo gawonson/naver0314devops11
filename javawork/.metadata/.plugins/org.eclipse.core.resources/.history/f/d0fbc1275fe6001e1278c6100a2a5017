@@ -1,0 +1,16 @@
+package day0320;
+
+public class Ex4_MyCalendar {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		/*
+		 * 년도와 월을 입력하면 해당 달력을 출력하시오
+		 * 만년달력을 만들기 위해서 알아야할 사항 2가지
+		 * 1. 내가 입력한 년도-월의 1일이 무슨요일인가?
+		 * 2. 
+		 */
+
+	}
+
+}
