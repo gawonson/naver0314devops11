@@ -1,0 +1,32 @@
+package day0321;
+
+import java.util.Scanner;
+
+public class Book199_9 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc=new Scanner(System.in);
+		int students,score,scoreList,high,avg;
+		int []arr;
+		
+		while (true)
+		{
+			System.out.println("학생 수: ");
+			students=sc.nextInt();
+			arr=new int[students];
+			for(int i=0;i<students;i++) 
+			{
+				System.out.println("점수 입력 :");
+				score=sc.nextInt();
+				arr[i]=score;
+				
+
+		}
+			for(int i=0;i<arr.length;i++)
+			{
+				System.out.println(arr[i]);
+			}
+	}
+
+}
