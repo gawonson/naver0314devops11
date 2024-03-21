@@ -25,29 +25,22 @@ public class Book199_9 {
 				for(int i=0;i<students;i++) {
 					System.out.printf("scores[%d]:",i);
 					score=sc.nextInt();
-
+					
 					scoreList[i]=score;
 					hap+=score;
 					avg=hap/students;
-
-
+					//최고점수 구하기
+					if(scoreList[0]<scoreList[i])
+						high=scoreList[i];
 				}}
 
 			if (dap==3) {
-
+					
 				for(int i=0;i<scoreList.length;i++) {
 					System.out.printf("score[%d]: %d\n",i,scoreList[i]);
 				}
 			}
 			if(dap==4) {
-				//최고점수 구하기
-				for(int i=0;i<scoreList.length;i++)
-				{
-					for(int j=1;j<scoreList.length;j++) {
-						if(scoreList[i]>scoreList[j])
-							high=scoreList[i];
-					}
-				}
 				System.out.printf("최고 점수: %d\n평균 점수: %d\n",high,avg);//최고점수 구하기
 			}
 			if(dap==5) {
@@ -56,5 +49,9 @@ public class Book199_9 {
 			}
 
 		}
+
+
+
+
 	}
 }

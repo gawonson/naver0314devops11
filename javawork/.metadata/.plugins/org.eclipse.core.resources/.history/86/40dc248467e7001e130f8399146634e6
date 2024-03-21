@@ -41,12 +41,10 @@ public class Book199_9 {
 			}
 			if(dap==4) {
 				//최고점수 구하기
-				for(int i=0;i<scoreList.length;i++)
-				{
-					for(int j=1;j<scoreList.length;j++) {
-						if(scoreList[i]>scoreList[j])
-							high=scoreList[i];
-					}
+				for(int i=0;i<=scoreList.length;i++)
+				{for(int j=1;j<scoreList.length;i++)
+					if(scoreList[i]>scoreList[j])
+						high=scoreList[i];
 				}
 				System.out.printf("최고 점수: %d\n평균 점수: %d\n",high,avg);//최고점수 구하기
 			}
@@ -56,5 +54,9 @@ public class Book199_9 {
 			}
 
 		}
+
+
+
+
 	}
 }
