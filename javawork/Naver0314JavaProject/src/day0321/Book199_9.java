@@ -7,13 +7,14 @@ public class Book199_9 {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Scanner sc=new Scanner(System.in);
-		int students=0,score,high=0,hap=0,dap,avg=0;
+		int students=0,score,high=0,hap=0,dap;
+		double avg=0;
 		int []scoreList=new int[0];
 		while(true) {	
 			System.out.println();
-			System.out.println("=".repeat(30));
+			System.out.println("=".repeat(45));
 			System.out.println("1. 학생수 |2. 점수입력 |3. 점수리스트 |4. 분석 |5.종료");
-			System.out.println("=".repeat(30));
+			System.out.println("=".repeat(45));
 			System.out.print("선택>");
 			dap=sc.nextInt();
 			if(dap==1) {
@@ -29,10 +30,8 @@ public class Book199_9 {
 					scoreList[i]=score;
 					hap+=score;
 					avg=hap/students;
-
-
-				}}
-
+				}
+			}
 			if (dap==3) {
 
 				for(int i=0;i<scoreList.length;i++) {
@@ -48,13 +47,12 @@ public class Book199_9 {
 							high=scoreList[i];
 					}
 				}
-				System.out.printf("최고 점수: %d\n평균 점수: %d\n",high,avg);//최고점수 구하기
+				System.out.printf("최고 점수: %d\n평균 점수: %.1f\n",high,avg);//최고점수 구하기
 			}
 			if(dap==5) {
 				System.out.println("프로그램 종료");
 				break;
 			}
-
 		}
 	}
 }

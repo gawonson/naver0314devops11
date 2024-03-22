@@ -1,0 +1,34 @@
+package day0322;
+
+	class Student
+	{
+		private String name;
+		private int kor,eng,tot;
+		private double avg;
+		
+		Student()
+		{
+			this("이름미정",20,20);//반드시 첫줄이어야만 한다.
+		}
+		
+		Student(String name)
+		{
+			this(name,50,60);
+		}
+		Student(String name,int kor, int eng)
+		{
+			this.eng=eng;
+			this.kor=kor;
+			this.name=name;
+			this.tot=kor+eng;
+			this.avg=tot/2.0;
+		}
+	}
+	public class Ex9_Constructor {
+		
+		public static void main(String[] args) {
+			
+			
+			
+		}
+}
