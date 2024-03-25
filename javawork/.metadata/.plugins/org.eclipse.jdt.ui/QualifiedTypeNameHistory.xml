@@ -25,4 +25,6 @@
     <fullyQualifiedTypeName name="java.lang.Math"/>
     <fullyQualifiedTypeName name="day0322.Kiwi"/>
     <fullyQualifiedTypeName name="day0322.Student"/>
+    <fullyQualifiedTypeName name="java.net.MulticastSocket"/>
+    <fullyQualifiedTypeName name="day0325.Employee"/>
 </qualifiedTypeNameHistroy>
