@@ -8,6 +8,7 @@
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="NAVER3014"/>
 			<item value="Sangpum"/>
 			<item value="sangpum"/>
 			<item value="get"/>
@@ -17,6 +18,7 @@
 			<item value="hak"/>
 		</list>
 		<list key="replacehistory">
+			<item value="NAVER 3014"/>
 			<item value="Sang"/>
 			<item value="sang"/>
 			<item value="ch"/>
