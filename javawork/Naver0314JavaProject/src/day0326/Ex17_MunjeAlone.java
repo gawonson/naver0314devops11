@@ -11,13 +11,11 @@ public class Ex17_MunjeAlone {
 	//파일 읽기
 	static public int sum=0, count=0;
 	static public void readscore2() throws IOException {
-		//io 함수
+		//io 함수 null의 이유는 exception 때문에
 		BufferedReader br=null;
 		FileReader fr=null;
 
-
-		//		try {	
-		//filereader : 파일 읽엉기
+	//filereader : 파일 읽어오기
 		fr=new FileReader(score2);
 		//엔터 경계로 데이터 읽어오기 (String 밖에 인식 못함)
 		br=new BufferedReader(fr);
@@ -53,6 +51,8 @@ public class Ex17_MunjeAlone {
 		catch(NumberFormatException e) {
 
 		}
+		
+		
 		System.out.println("갯수:"+count);
 		System.out.println("총점:"+sum);
 		System.out.println("평균:"+(double)sum/count);

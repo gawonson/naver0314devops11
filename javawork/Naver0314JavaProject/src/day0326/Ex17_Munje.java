@@ -35,14 +35,7 @@ public class Ex17_Munje {
 				if(line==null)
 					break;
 				String a[] =line.split("\n");
-				//				if(intline<0&&intline>100)
-				//				{
-				//					sum=+Integer.parseInt(line);
-				//					count++;
-				//				}
-				//				else
-				//					continue;
-
+			
 				for(int i=0;i<a.length;i++)
 				{
 					try{sum+=Integer.parseInt(a[i]);
@@ -60,6 +53,15 @@ public class Ex17_Munje {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}finally {
+			try {
+				br.close();
+				fr.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
 		}
 	}
 	public static void main(String[] args) {
