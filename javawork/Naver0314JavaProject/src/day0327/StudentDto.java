@@ -85,11 +85,11 @@ public class StudentDto {
 	//반환하는 메서드(getGrade)
 	//getAvg()의 값이 90이상이면 "*****", 80이상이면"****",70이상이면 "***",나머지는 "*"
 	public String getGrade() {
-		if(getTotal()>=90)
+		if(getAvg()>=90)
 			return "*****";
-		else if(getTotal()>=80) 
+		else if(getAvg()>=80) 
 			return "****";
-		else if(getTotal()>=70)
+		else if(getAvg()>=70)
 			return "***";
 		else 
 			return "*";

@@ -29,8 +29,9 @@ public class Ex7_VectorMunje {
 		}
 	}
 	public void personRead() throws IOException
-	{		FileReader f=null;
-	BufferedReader b=null;
+	{		
+		FileReader f=null;
+		BufferedReader b=null;
 	try {
 
 		f=new FileReader(FILENAME);
