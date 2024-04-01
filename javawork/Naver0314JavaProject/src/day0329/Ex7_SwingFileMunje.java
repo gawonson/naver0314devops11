@@ -40,7 +40,7 @@ public class Ex7_SwingFileMunje extends JFrame{
 
 		super(title);
 		this.setLocation(100,100);
-		this.setSize(500,500);
+		this.setSize(400,400);
 		//this.getContentPane().setBackground(Color.pink);//배경색 변경
 		//this.getContentPane().setBackground(new Color(93,56,56);//배경색 변경
 		//this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//프레임 종료
@@ -173,7 +173,7 @@ public class Ex7_SwingFileMunje extends JFrame{
 				vector.add(level);
 				tableModel.addRow(vector);
 				tfName.setText("");
-				System.out.println(vector);
+				//				System.out.println(vector);
 
 			}
 

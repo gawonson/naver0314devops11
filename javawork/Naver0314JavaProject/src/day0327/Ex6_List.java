@@ -48,7 +48,7 @@ public class Ex6_List {
 		{
 			System.out.println(i+":"+list1.get(i));
 		}
-		vec
+
 		
 		System.out.println(" ** 출력 3 ** ");
 		
