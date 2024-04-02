@@ -1,0 +1,52 @@
+package myown;
+
+import java.util.Scanner;
+
+public class P199 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("=".repeat(45));
+		System.out.println("1.학생수 | 2.점수입력 | 3.점수리스트 | 4.분석 | 5.종료");
+		System.out.println("=".repeat(45));
+		Scanner sc=new Scanner(System.in);
+
+		int su,stu=0,score=0;
+		int[] scores=new int[0];
+		
+
+			while(true)
+			{
+				System.out.print("선택>");
+				su=sc.nextInt();
+				if(su==1){
+					System.out.print("학생수>");
+					stu=sc.nextInt();
+					scores=new int[stu];
+				}
+				if(su== 2)
+					for(int i=0;i<stu;i++) {
+						System.out.println(stu);
+						System.out.print("scores["+i+"]");
+						score=sc.nextInt();
+						
+						
+					}
+				if(su==3)
+				{
+					for(int n:scores) {
+						System.out.println(n);;
+					}
+				}
+
+			}
+
+
+
+	}
+
+}
+
+
+
+
