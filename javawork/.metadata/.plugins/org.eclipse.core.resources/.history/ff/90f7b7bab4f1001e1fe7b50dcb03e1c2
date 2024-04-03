@@ -8,7 +8,7 @@ public class P199 {
 		// TODO Auto-generated method stub
 		String s="1 2 3 4";
 		String ss []=s.split(" ");
-		System.out.println(ss[1]);
+		
 		
 		
 		

@@ -4,11 +4,14 @@ import java.util.Scanner;
 
 public class P199 {
 
-	public static void main(String[] arg) {
+	public static void main(String[] s) {
 		// TODO Auto-generated method stub
-		String s="1 2 3 4";
-		String ss []=s.split(" ");
-		System.out.println(ss[1]);
+
+		s="1 2 3 4";
+		
+
+
+		System.out.println(s);
 		
 		
 		
