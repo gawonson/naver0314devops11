@@ -1,0 +1,46 @@
+package day0404db;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class Ex1_MysqlSawon {
+	static final String MYSQL_DRIVER="com.mysql.cj.jdbc.Driver";
+	static final String MYSQL_URL ="jdbc:mysql://localhost:3306/bit701?serverTimezone=Asia/Seoul";
+	static final String USERNAME="root";
+	static final String PASSWORD="1234";
+	
+	public Ex1_MysqlSawon() {
+		try {
+			Class.forName(MYSQL_DRIVER);
+			System.out.println("MySQL8 드라이버 성공!");
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			System.out.println("MySQL8 드라이버 오류:"+e.getMessage());
+		}	
+	}
+	static public void showTitle()
+	{
+		System.out.println("=".repeat(40));
+		System.out.println("시퀀스\t이름\t성별\t부서\t점수");
+		System.out.println("=".repeat(40));
+	}
+	public void writeSawon() {
+		//URL , user 명과 , 비번이 모두 맞으면 connection 을 얻는다
+		Connection conn=null;
+		try {
+			conn=DriverManager.getConnection(MYSQL_URL, USERNAME, PASSWORD);
+			System.out.println("mysql 서버에 연결 성공!");
+			showTitle();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			System.out.println("URL,USERNAME,PASSWORD 확인:"+e.getMessage());
+		}
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Ex1_MysqlSawon ex1=new Ex1_MysqlSawon();
+		ex1.writeSawon();
+	}
+
+}

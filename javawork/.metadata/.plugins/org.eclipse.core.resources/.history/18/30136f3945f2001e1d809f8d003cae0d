@@ -1,0 +1,53 @@
+packagemyown ;
+importjava.util.Scanner;
+publicclassP199{
+	publicstaticvoidmain(String[]args) {
+		// TODO Auto-generated method stub
+		Scannersc=newScanner(System.in);
+		int su,stu=0,score=0;
+		int[]scores=newint[0];
+		int max=0,total=0;
+		doubleavg=0;
+		while(true)
+		{System.out.println("-".repeat(45));
+		System.out.println("1.학생수 | 2.점수입력 | 3.점수리스트 | 4.분석 | 5.종료");
+		System.out.println("-".repeat(45));
+		System.out.print("선택> ");
+		su=sc.nextInt();
+		if(su==1){
+			System.out.print("학생수> ");
+			stu=sc.nextInt();
+			scores=newint[stu];
+		}
+		if(su==2)
+			for(inti=0;i<stu;i++) {
+				System.out.print("scores["+i+"]> ");
+				score=sc.nextInt();
+				scores[i]=score;
+			}
+		if(su==3)
+		{
+			for(inti=0;i<scores.length;i++) {
+				System.out.println("score["+i+"]: "+scores[i]);
+			}
+		}
+		if(su==4) {
+			for(inti=0;i<scores.length;i++)
+			{
+				total+=scores[i];
+				if(scores[i]>max)
+					max=scores[i];
+			}
+			avg=total/stu;
+			System.out.println("최고 점수: "+max);
+			System.out.printf("평균 점수: %.1f\n",avg);
+		}
+		if(su==5) {
+			System.out.println("프로그램 종료");
+			return;
+		}
+		}
+	}
+}
+
+

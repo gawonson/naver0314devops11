@@ -1,0 +1,21 @@
+package day0404db;
+
+public class Ex1_MysqlSawon {
+	static final String MYSQL_DRIVER="com.mysql.cj.jdbs.Driver";
+	
+	public Ex1_MysqlSawon() {
+		try {
+			Class.forName(MYSQL_DRIVER);
+			System.out.println("MySQL8 드라이버 성공!");
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			System.out.println("MySQL8 드라이버 오류:"+e.getMessage());
+		}
+		
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Ex1_MysqlSawon ex1=new Ex1_MysqlSawon();
+	}
+
+}
