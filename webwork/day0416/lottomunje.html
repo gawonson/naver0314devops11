@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- <style>
+    table
+    {
+        width: 350px ;border: 3px solid blueviolet; border: 1;
+    }
+        
+    </style> -->
+
+
+</head>
+
+<body>
+    <!--select option 만들기-->
+    <select id="opts">
+        <script>
+            for (let i = 1; i <= 10; i++) {
+                let s = `
+            <option>${i}</option>
+            `
+                document.write(s);
+            };
+        </script>
+    </select>
+    <script>
+        let lotto = new Array();
+        //opts의 값 선언
+
+        let optsnum = document.getElementById("opts");
+
+        optsnum.onchange = function () {
+            for (let i = 0; i < this.value; i++) {
+
+
+                //선언
+
+                //lotto에 랜덤숫자 넣어주기
+                for (let i = 0; i < 6; i++) {
+                    lotto[i] = parseInt(Math.random() * 45) + 1;
+
+                    //중복처리
+                    for (let j = 0; j < i; j++) {
+                        if (lotto[i] == lotto[j]) {
+                            i--;
+
+                        }
+                    }
+                    //순서 정렬
+                    for (let i = 0; i < lotto.length - 1; i++) {
+                        for (let j = i + 1; j < lotto.length; j++) {
+                            if (lotto[i] > lotto[j]) {
+                                let a = lotto[i];
+                                lotto[i] = lotto[j];
+                                lotto[j] = a
+                            }
+                        }
+                    }
+
+                }
+                document.write('<table><tr border-radius= "100px">')
+
+                for (let i = 0; i < lotto.length; i++) {
+                    let r = parseInt(Math.random() * 256);
+                    let g = parseInt(Math.random() * 256);
+                    let b = parseInt(Math.random() * 256);
+                    let sen = `<td  align="center"
+                                    width= "50px"
+                                    bgcolor="r,b,g"
+            
+                                height= "50px";
+                                border= "1px solid gray"
+                                
+                                align="center";
+                                >${lotto[i]}</td>`
+                    document.write(sen);
+
+
+                } document.write('</tr></table>')
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>
