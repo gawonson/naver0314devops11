@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div.lotto{
+            float: left;
+            background-color: blue;
+        }
+    </style>
+
+    <script>
+
+        let msg = "";
+        let lottolist=new Array(6);
+        function moneyinfo(cnt) {
+            let m = `${cnt}회차 번호 `;
+            let box = document.getElementById("box");
+            box.innerHTML += m;
+
+        }
+        function lottoprint(cnt) {
+            
+            for(let i=0;i<Number(cnt);i++){
+                for(let j=0;j<lottolist.length;j++){
+                    lottolist[j]=parseInt(Math.random()*45)+1;
+                    //중복처리
+                    for(let n=0;n<j;n++){
+                        if(lottolist[n]==lottolist[j]){
+                            j--;
+                            break;
+                        }
+                    }
+                }
+                //오름차순 정렬
+                for(let m=0;m<lottolist.length-1;m++){
+                    for(let p=m+1;p<lottolist.length;p++){
+                        if(lottolist[m]>lottolist[p]){
+                            let temp=lottolist[m];
+                            lottolist[m]=lottolist[p];
+                            lottolist[p]=temp;
+                        }
+                    } //출력
+                
+                }
+               
+                for(let p of lottolist){
+                    msg+=`<div class="lotto" 
+                    style="float:left; width:50px; 
+                    border:1px solid red ;
+                    margin: 3px;
+                    text-align:center;
+                    line-heigt:40px;
+                    margin-right:3px;
+                    heiget:50px; border-radius: 100px; 
+                    ">${p}</div>`;
+                }
+                msg+=`<br style="clear:both">`
+            }document.write(msg);
+            
+        }
+    </script>
+
+</head>
+
+<body>
+    <select id="money">
+        <option hidden disabled selected>횟수를 고르세요</option>
+        <script>
+            for (let i = 1; i <= 10; i++) {
+                let sen = `
+                <option>${i}</option>
+            `;
+                document.write(sen);
+            }
+        </script>
+    </select>
+    <div id="box" style="height: auto;"></div>
+    <script>
+        document.getElementById("money").onchange = function inputmon() {
+            let cnt = document.getElementById("money").value;
+            moneyinfo(cnt);
+            lottoprint(cnt);
+        }
+    </script>
+
+
+</body>
+
+</html>

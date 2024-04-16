@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #selmoney{
+            align-items: 100%;
+        }
+        #count{
+            
+            text-align: center;
+            margin-top: 20px;
+            
+        }
+        div.lotto{
+            width: 40px;
+            height: 40px;
+            border: 1px solid black;
+            border-radius: 100px;
+            margin-right: 3px;
+            float: left;
+            line-height: 40px;
+            text-align: center;
+            font-family: "Comic Sans MS";
+            margin: 3px;
+            
+        }
+        /* #lottolist {
+            margin-top: 20px;
+            border-radius: 100px;
+
+        } */
+    </style>
+
+    <script>
+
+        window.onload = function () {
+            let cnt;
+            document.getElementById("selmoney").onchange = function () {
+                let msg="";
+                
+                let optnum=Number(this.value);
+                for (let j = 1; j <= optnum; j++) {
+                    cnt=j;
+                    
+                    let lotto = new Array(6);
+                   
+                    for (let i = 0; i < lotto.length; i++) {
+                        lotto[i] = parseInt(Math.random() * 45) + 1;
+                        //중복처리
+                        for (let m = 0; m < i; m++) {
+                            if (lotto[i] == lotto[m]) {
+                                i--;
+                                break;
+                            }
+                        }
+                    }
+                    for (let q = 0; q < lotto.length - 1; q++) {
+                        for (let o = q + 1; o < lotto.length; o++) {
+                            if (lotto[q] > lotto[o]) {
+                                let temp = lotto[q];
+                                lotto[q] = lotto[o];
+                                lotto[o] = temp;
+                            }
+                            
+                        }
+                    }
+                    for (let a of lotto) {
+                         
+                        msg += `<div class="lotto">${a} </div> `;
+                    }
+                    msg+=`<br style="clear:both">`;//
+                }
+                count.innerHTML=`총 ${cnt}회차 번호`;
+              
+                lottolist.innerHTML=msg;
+
+            }
+
+        }
+    </script>
+</head>
+
+<body>
+    <select id="selmoney">
+        <option hidden disabled selected>로또 횟수를 입력하세요</option>
+        <script>
+            for (let i = 1; i <= 10; i++) {
+                let opt =
+                    `
+                <option>${i}</option>
+                `;
+                document.write(opt);
+            }
+        </script>
+    </select>
+    <div id="count" ></div>
+    <div id="lottolist"></div>
+</body>
+
+</html>

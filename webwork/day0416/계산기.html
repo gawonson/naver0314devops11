@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            border: double black;
+            width: 400px;
+        }
+
+        #btn {
+            width: 100px;
+            height: 85px;
+        }
+    </style>
+    <script>
+        let num1, num2, op;
+        let first = true;
+        let dot;
+        let screen;
+        window.onload = function () {
+            screen = document.querySelector(".screen");
+        }
+
+        function fnum(num) {
+            if (first) {
+                screen.innerText = num;
+                first = false;
+
+            } else if (!first) {
+                screen.innerText += num;
+            }
+
+        }
+        function foper(oper) {
+            num1=Number(screen.innerText);
+            op=oper;
+            first=true;
+            dot=false;
+            
+
+        }
+        function fequal() {
+            //현재 창의 숫자를 su2에 저장한다.
+            num1 = Number(screen.innerText);
+            if (op == '+')
+                num2 += num1;
+            else if (op == '-')
+                num2 -= num1;
+            else if (op == 'X')
+                num2 *= num1;
+            else if (op == '/') {
+                num2 /= num1;
+                num2 = num1.toFixed(2);//소수점 두자리까지만
+            }
+
+            //결과 다신 출력
+            screen.innerText = num2;
+            op = "";
+            dot = false;
+            first = true;
+        }
+
+        function fback() {
+            let n = screen.innerText;
+            let len = n.length;
+            let finalchar = n.charAt(len - 1);
+            let c = n.substring(0, len - 1);
+
+            if (c.length == 0) {
+                screen.innerText = 0;
+            }
+            else if (c == '.') {
+                dot = false;
+            }
+            else {
+                screen.innerText = c;
+            }
+            if (finalchar == '.') {
+                dot = false;
+            }
+        }
+        function fdot() {
+            if (!dot) {
+                screen.innerText += '.';
+                dot = true;
+            }
+
+        }
+        function fpm() {
+            let su=Number(screen.innerText)*-1;
+            screen.innerText=su;
+        }
+        function fce() {
+  
+            num1=0;
+            dot=false;
+            first=true;
+            screen.innerText="";
+
+        }
+        function fc() {
+            num1,num2=0;
+            screen.innerText="";
+            dot=false;
+            op="";
+            first=true;
+        }
+    </script>
+</head>
+
+<body>
+    <table>
+        <caption>
+            <h2>한글 계산기</h2>
+        </caption>
+        <tr style="width: 400px;height: 80px">
+            <td class="screen" colspan="4" style=" border: 2px double black;">0</td>
+        </tr>
+        <tr>
+            <td><input value="%" type="button" id="btn" onclick="foper()"></td>
+            <td><input value="CE" type="button" id="btn" onclick="fce()"></td>
+            <td><input value="C" type="button" id="btn" onclick="fc()"></td>
+            <td><input value="BACK" type="button" id="btn" onclick="fback()"></td>
+        </tr>
+        <tr>
+            <td><input value="7" type="button" id="btn" onclick="fnum(this.value)"></td>
+            <td><input value="8" type="button" id="btn" onclick="fnum(this.value)"></td>
+            <td><input value="9" type="button" id="btn" onclick="fnum(this.value)"></td>
+            <td><input value="X" type="button" id="btn" onclick="foper()"></td>
+        </tr>
+        <tr>
+            <td><input value="4" type="button" id="btn" onclick="fnum(this.value)"></td>
+            <td><input value="5" type="button" id="btn" onclick="fnum(this.value)"></td>
+            <td><input value="6" type="button" id="btn" onclick="fnum(this.value)"></td>
+            <td><input value="-" type="button" id="btn" onclick="foper()"></td>
+        </tr>
+        <tr>
+            <td><input value="1" type="button" id="btn" onclick="fnum(this.value)"></td>
+            <td><input value="2" type="button" id="btn" onclick="fnum(this.value)"></td>
+            <td><input value="3" type="button" id="btn" onclick="fnum(this.value)"></td>
+            <td><input value="+" type="button" id="btn" onclick="foper()"></td>
+        </tr>
+        <tr>
+            <td><input value="+/-" type="button" id="btn" onclick="fpm()"></td>
+            <td><input value="0" type="button" id="btn" onclick="fnum(this.value)"></td>
+            <td><input value="." type="button" id="btn" onclick="fdot()"></td>
+            <td><input value="=" type="button" id="btn" onclick="fequal()"></td>
+        </tr>
+    </table>
+</body>
+
+</html>
