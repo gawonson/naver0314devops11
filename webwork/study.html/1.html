@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Dancing+Script:wght@400..700&family=East+Sea+Dokdo&family=Gaegu&family=Gamja+Flower&family=Pacifico&family=Single+Day&display=swap"
+        rel="stylesheet">
+    <style>
+        body * {
+            font-family: 'East Sea Dokdo';
+            font-size: 30px;
+           
+        }
+   
+    </style>
+    <div>
+        <script>
+            let linecol = [
+                ["black", "검정"], ["gray", "회색"], ["green", "초록"], ["red", "빨강"]
+            ];
+            let linet = ["inset", "double", "dotted"];
+        </script>
+    </div>
+</head>
+
+<body>
+
+    </option>
+    <div>
+        <table class="table table-bordered">
+            <caption align="top">사진꾸미기</caption>
+            <tr>
+                <td rowspan="4">
+                    <img src="../image/snoopyAvata/s1.JPG" id="photo">
+                </td>
+                <td>선굵기</td>
+                <td>
+                    <select id="linesize">
+                        <script>
+                            for (let i = 1; i <= 15; i += 2) {
+                                let s = `<option value${i}>${i}</option>`;
+                                document.write(s);
+                            }
+                        </script>
+                    </select>
+                </td>
+            </tr>
+
+
+
+            <tr>
+                <td>선색상</td>
+                <td>
+                    <select id="linecolor">
+                        <script>
+                            for (let i = 0; i < linecol.length; i++) {
+                                let s = `<option value=${linecol[i][0]}>${linecol[i][1]}</option>`;
+                                document.write(s);
+                            }
+                        </script>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>사진</td>
+                <td>
+                    <select id="selphoto">
+                        <script>
+                            for (let i = 1; i <= 10; i++) {
+                                let s = `<option value="../image/snoopyAvata/s${i}.JPG">스누피${i}번</option>`;
+                                document.write(s);
+                            }
+                        </script>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>선종류</td>
+                <td>
+                    <select id="linetype">
+                        <script>
+                            for (let i = 0; i < linet.length; i++) {
+                                let s = `<option value="${linet[i]}">${linet[i]}</option>`;
+                                document.write(s);
+                            }
+                        </script>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td id="photoname">
+                    <h3></h3>
+                </td>
+                <td colspan="2">
+                    <input type="checkbox" id="bold">굵게
+                    <input type="checkbox" id="under">밑줄
+                    <input type="checkbox" id="italic">이텔릭
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="fn">
+        <script>
+            let c = document.querySelector(".table");
+            let b=document.getElementById("photoname");
+ 
+                //함수넣기
+                //테두리 굵기s
+                $(function () {
+                    $("#linesize").change(function () {
+                        let s = this.value;
+                        console.log(s);
+                        c.border = `${this.value}`;
+
+
+                    });
+                    //선 색상
+                    $("#linecolor").change(function () {
+                        $(c).css("border-color", this.value);
+                    });
+                    //사진선택
+                    $("#selphoto").change(function () {
+                        let a = document.getElementById("selphoto").value;
+                        console.log("a=", a)
+                        $("#photo").attr("src", a);
+                        document.getElementById("photoname").innerText = this.options[this.selectedIndex].label;
+                    });
+                    //선종류 변경
+                    $("#linetype").change(function () {
+                        console.log(this.value);
+                        c.style.borderStyle = this.value;
+                    });
+                    // 굵게
+                    $("#bold").click(function(){
+                        if($("#bold").is(':checked')) {
+                        $("#photoname").css("font-width","bold");}
+                    })
+                    //밑줄
+
+                    //이텔릭
+
+                });
+
+        </script>
+    </div>
+</body>
+
+</html>

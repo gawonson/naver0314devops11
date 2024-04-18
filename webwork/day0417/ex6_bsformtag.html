@@ -18,10 +18,27 @@
         }
     </style>
     <script>
+        let photo,pname;
+        function init(){
+            //로클스토리지의 값 불러와서 적용하기
+            photo=document.querySelector(".largephoto");
+            pname=document.querySelector(".photoname");
+            let  i=document.querySelector(".selcolor");
+            photo.src=localStorage.photosrc;
+            pname.innerText=localStorage.photoname;
+            photo.style.borderColor=localStorage.linecolor;
+            
+            document.querySelector(".selcolor").selectedIndex=localStorage.lineindex;
+           document.querySelector(".selphoto").selectedIndex=localStorage.photoindex;
+        }
         window.onload=function(){
-            let photo=document.querySelector(".largephoto");
-            let pname=document.querySelector(".photoname");
-
+            
+            init();
+            photo=document.querySelector(".largephoto");
+            pname=document.querySelector(".photoname");
+            document.getElementById("detailcar").src=photo.src;
+            
+            
             //선굵기 변경시 사진의 border 굵기 변경하기
             document.querySelector(".selwidth").onchange=function(){
                 photo.style.borderWidth=this.value+"px";
@@ -29,6 +46,11 @@
             //선 색상 변경시 사진의  border color 변경
             document.querySelector(".selcolor").onchange=function(){
                 photo.style.borderColor=this.value;
+
+                //로컬 스토리지에 linecolor 로 선색상 저장, lineindex에 인덱스저장```````````````````````````````````````````````````
+                localStorage.lineindex=this.selectedIndex;
+                localStorage.linecolor=this.value;
+
             }
 
             //사진변경시 value 값 얻어서 사진변경하고 label 값 얻엇 ㅓ이름 젼경
@@ -37,6 +59,13 @@
                 let n=this.options[this.selectedIndex].label;
                 pname.innerText=n;
                 document.getElementById("detailcar").src=this.value;
+
+                //사진 변경시 3가지 로컬스토리지에 저장
+                //사진 src:photosrc, 이름 : photoname, 인덱스:photoindex----------------------------------------------------------
+                localStorage.photosrc=this.value;
+                localStorage.photoname=this.options[this.selectedIndex].label;
+                localStorage.photoindex=this.selectedIndex;
+                
 
             }
             //선종류 변경시  border style변경
@@ -84,7 +113,7 @@
   
         <!-- Modal body -->
         <div class="modal-body a">
-          <img src="../image/talent/15.jpg" width="100%" id="detailcar">
+          <img src="" width="100%" id="detailcar">
         </div>
   
         <!-- Modal footer -->
@@ -101,7 +130,7 @@
         </caption>
         <tr>
             <td style="width: 300px;" rowspan="4" align="center">
-                <img src="../image/talent/15.jpg" width="180px"  data-bs-toggle="modal" data-bs-target="#myModal" class="largephoto" style="border: 5px inset gold;">
+                <img src="../image/talent/15.jpg" width="180px"  data-bs-toggle="modal" data-bs-target="#myModal" class="largephoto" style="border: 5px inset gold; cursor: pointer;">
             </td>
             <td style="width: 70px;">
                 선굵기
