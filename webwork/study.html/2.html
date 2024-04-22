@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Dancing+Script:wght@400..700&family=East+Sea+Dokdo&family=Jua&family=Gaegu&family=Gamja+Flower&family=Pacifico&family=Single+Day&display=swap"
+        rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+    <style>
+        body * {
+            font-family: 'Jua';
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <table class="table" style="width: 500px; height: 500px; border: double 2px gray;">
+            <caption align="top" style="text-align: center;">
+                <h2>회원가입하기</h2>
+            </caption>
+            <tr>
+                <th class="table-secondary">
+                    이름
+                </th>
+                <td>
+                    <input type="text" id="name" placeholder="이름">
+                </td>
+            </tr>
+            <tr>
+                <th class="table-secondary">닉네임</th>
+                <td>
+                    <input type="text" id="nickname" placeholder="게시판등에 이름 대신 사용">
+                    <input type="button" id="over" value="중복체크">
+                </td>
+            </tr>
+            <tr>
+                <th class="table-secondary">성별</th>
+                <td>
+                    <input type="button" name="gender" id="male" value="남자" style="width: 100px; height: 50px;">
+                    <input type="button" name="gender" id="female" value="여자" style="width: 100px; height: 50px;">
+                </td>
+            </tr>
+            <tr>
+                <th class="table-secondary">생년월일</th>
+                <td>
+                    <select id="year">
+                        <option hidden disabled selected>년도(4자리)</option>
+                        <script>
+                            for (let i = 2024; i >= 1980; i--) {
+                                let s = `<option>${i}</option>`;
+                                document.write(s);
+                            }
+                        </script>
+                    </select>
+                    <select id="month">
+                        <option hidden disabled selected>월</option>
+                        <script>
+                            for (let i = 1; i <= 12; i++) {
+                                let s = `<option>${i}</option>`;
+                                document.write(s);
+                            }
+                        </script>
+                    </select>
+                    <select id="date">
+                        <option hidden disabled selected>일</option>
+                        <script>
+                            for (let i = 1; i <= 31; i++) {
+                                let s = `<option>${i}</option>`;
+                                document.write(s);
+                            }
+                        </script>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th class="table-secondary">휴대전화</th>
+                <td>
+                    <select id="phone1">
+                        <option hidden disabled selected>번호선택</option>
+                        <option>010</option>
+                        <option>011</option>
+                        <option>018</option>
+                        <option>016</option>
+                        <option>001</option>
+                    </select>
+                    <input type="text" id="phone2" placeholder="나머지번호입력">
+                </td>
+            </tr>
+
+        </table>
+        <button id="addmission">가입</button>
+    </div>
+
+    <script>
+        localStorage.clear();
+        let storage = [];
+        let fname, fphonenum, fyear, fmonth, fdate, fgender, fnickname, fbirthday;
+        let gendertf = true;
+        let nic = true;
+        //이름
+
+        //닉네임 중복체크
+        $("#over").click(function () {
+
+            if ($("#nickname").val() == "") {
+                alert("닉네임을 입력하세요")
+            }
+            else {
+                let nickk = $("#nickname").val();
+                if (localStorage.key(nickk)) 
+                {
+                    alert("중복된 닉네임입니다.");
+                    return;
+                }
+
+                else {
+                    $(this).css("background-color", "gray");
+                    fnickname = $("#nickname").val();
+
+
+                }
+            }
+        })
+        //남자성별체크
+        $("#male").click(function () {
+            if (gendertf == true) {
+                $(this).css("background-color", "gray")
+                gendertf = false
+                fgender = $(this).val();
+            }
+            else {
+                $("#female").css("background-color", "")
+                $(this).css("background-color", "gray")
+                gendertf = false;
+                fgender = $(this).val();
+            }
+        })
+        //여자성별체크
+        $("#female").click(function () {
+            if (gendertf == true) {
+                $(this).css("background-color", "gray")
+                gendertf = false
+                fgender = $(this).val();
+            }
+            else {
+                $("#male").css("background-color", "")
+                $(this).css("background-color", "gray")
+                gendertf = false;
+                fgender = $(this).val();
+            }
+
+        })
+        //가입
+        $("#addmission").click(function () {
+            let name = $("#name").val();
+            //이름
+            if (name == "") {
+                alert("이름을 입력하세요")
+                return;
+            }
+            else {
+                fname = $("#name").val();
+            }
+            //생년월일
+            if ($("#year").val() != null && $("#month").val() != null && $("#date").val() != null) {
+                fyear = $("#year").val()
+                console.log(fyear);
+
+                fmonth = $("#month").val()
+                console.log(fmonth);
+
+                fdate = $("#date").val()
+                console.log(fdate);
+                fbirthday = fyear + "," + fmonth + "," + fdate;
+
+            } else {
+                alert("생년월일 확인")
+                return;
+            }
+            //휴대전화
+            if ($("#phone1").val() != null && $("#phone2").val() != "") {
+                fphonenum = $("#phone1").val() + $("#phone2").val();
+            }
+            else {
+                console.log($("#phone1").val() + $("#phone2").val());
+                alert("핸드폰번호 확인")
+                return;
+            }
+
+
+            storage = [
+                fname, fnickname, fgender, fbirthday, fphonenum];
+
+
+            let i = Number(localStorage.key.length + 1);
+
+            localStorage.setItem(fnickname, storage);
+
+
+        })
+
+
+    </script>
+
+
+</body>
+
+</html>
