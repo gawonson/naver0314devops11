@@ -100,11 +100,10 @@
     </div>
 
     <script>
-        localStorage.clear();
         let storage = [];
         let fname, fphonenum, fyear, fmonth, fdate, fgender, fnickname, fbirthday;
         let gendertf = true;
-        let nic = true;
+
         //이름
 
         //닉네임 중복체크
@@ -115,7 +114,8 @@
             }
             else {
                 let nickk = $("#nickname").val();
-                if (localStorage.key(nickk)) 
+                
+                if (localStorage.getItem(nickk)!=null) 
                 {
                     alert("중복된 닉네임입니다.");
                     return;
