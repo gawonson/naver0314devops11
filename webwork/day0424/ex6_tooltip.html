@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Dancing+Script:wght@400..700&family=East+Sea+Dokdo&family=Jua&family=Gaegu&family=Gamja+Flower&family=Pacifico&family=Single+Day&display=swap"
+        rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+    <style>
+        body * {
+            font-family: 'Jua';
+        }
+
+        div.mytooltip {
+            position: absolute;
+            line-height: 1.5;
+            color: black;
+            width: 200px;
+            background-color: #f90;
+            border: 2px solid white;
+            padding: 15px;
+            font-size: 14px;
+            border-radius: 30px;
+            opacity: 0.8;
+            display: none;
+        }
+
+        .view {
+            cursor: pointer;
+            background-color: #ccc;
+            font-size: 1.3em;
+        }
+
+        ol.today li {
+            cursor: pointer;
+            font-size: 22px;
+            width: 200px;
+        }
+
+        ol.today li:hover {
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+    </style>
+    <script>
+        $(function () {
+            $("a").bind({
+                mousemove: function (e) {
+                    //e.pageX:커서의 X좌표, e.pageY:커서의  Y좌표
+                    //툴팁의 위치를 마우스 포인터위치로 변경
+                    $("div.mytooltip").css({
+                        'left': e.pageX + 'px',
+                        'top': e.pageY + "px"
+                    })
+                },
+                mouseover: function (e) {
+                    $("div.mytooltip").fadeIn('fast');
+                    $("div.mytooltip").html(
+                        ` Java<br>
+                            HTML<br>
+                            CSS<br>
+                            Mysql`
+                    ).css("background-color", "#f90")
+                },
+                mouseout: function (e) {
+                    $("div.mytooltip").fadeOut('fast');
+                }
+            })
+            $("b").bind({
+                mousemove: function (e) {
+                    //e.pageX:커서의 X좌표, e.pageY:커서의  Y좌표
+                    //툴팁의 위치를 마우스 포인터위치로 변경
+                    $("div.mytooltip").css({
+                        'left': e.pageX + 'px',
+                        'top': e.pageY + "px"
+                    })
+                },
+                mouseover: function (e) {
+                    $("div.mytooltip").fadeIn('fast');
+                    //b태그의 text와 color얻기
+                    let text = $(this).text();
+                    let color = $(this).attr("color");
+
+                    $("div.mytooltip").html(
+                        ` 
+                        현재 관심사항<br>
+                        ${text}`
+                    ).css("background-color", color)
+                },
+                mouseout: function (e) {
+                    $("div.mytooltip").fadeOut('fast');
+                }
+            })
+            $(".today>li").bind({
+                mousemove: function (e) {
+                    //e.pageX:커서의 X좌표, e.pageY:커서의  Y좌표
+                    //툴팁의 위치를 마우스 포인터위치로 변경
+                    $("div.mytooltip").css({
+                        'left': e.pageX + 'px',
+                        'top': e.pageY + "px"
+                    })
+                },
+                mouseover: function (e) {
+                    //photo와 text를 얻어서
+                    //tooltip의 html에 넣어주세용
+                    
+                    let text2 = $(this).text();
+                    let imgsrc = $(this).attr("photo");
+                    $("div.mytooltip").fadeIn('fast');
+                    $("div.mytooltip").html(
+                        `<img src="${imgsrc}" width=100><br><h5>${text2}</h5>`
+                    ).css("background-color", "#f90")
+                },
+                mouseout: function (e) {
+                    $("div.mytooltip").fadeOut('fast');
+                }
+            })
+
+        })
+    </script>
+</head>
+
+<body>
+    <h4 class="alert alert-info">Tooltip 링크 부분에 마우스를 올려보세요</h4>
+    <br><br>
+    <a style="font-size: 25px;cursor: pointer;">
+        Tooltip Tooltip Tooltip Tooltip Tooltip Tooltip Tooltip
+        Tooltip Tooltip Tooltip Tooltip Tooltip Tooltip Tooltip
+    </a>
+    <pre>
+        비가 내리는 날 알레르기 증상이 더 심해지는 사람이 뜻밖에 많다. 
+        비가 주룩주룩 내리는 날엔 축축한 공기로 곰팡이, 집먼지 등 알레르기 물질(알레르겐)이 번식하기 쉽다. 
+        또 비 때문에 봄철 꽃가루가 더 작은 입자로 분해돼 더 멀리 흩어진다.미국 건강의학매체 <b class="view" color="pink">'헬스라인'</b>은 "빗물에는 독소와 각종 오염물질이 들어 있을 수 있다. 
+        <b class="view" color="green">비오는 날,</b>제습기를 가동하고 알레르기 약을 복용하는 등 적절한 조치를 취하면 알레르기 치료에 도움이 된다"고 주의를 환기시켰다. 
+        미국 <b class="view" color="lightgray">질병통제예방센터(CDC)</b>에 의하면 빗물엔 먼지, 연기, 석면, 납, 구리 및 각종 화학물질이 포함돼 있을 수 있다. 
+        또한 <b class="view" color="chocolate">바이러스, 박테리아, 기생충, 곰팡이</b>도 들어 있을 확률이 높다.
+    </pre>
+    <hr>
+    <h2> 오늘 나의 식사 및 쇼핑 목록입니다</h2>
+    <ol type="1" class="today">
+        <li photo="../image/food/1.jpg">에그샌드위치</li>
+        <li photo="../image/food/11.jpg">망고빙수</li>
+        <li photo="../image/shop/8.jpg">회색스웨터</li>
+        <li photo="../image/shop/29.jpg">여름용모자</li>
+    </ol>
+    <div class="mytooltip">
+        Java<br>
+        HTML<br>
+        CSS<br>
+        Mysql
+    </div>
+</body>
+
+</html>
