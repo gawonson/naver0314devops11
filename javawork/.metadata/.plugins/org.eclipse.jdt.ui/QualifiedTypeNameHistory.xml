@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="java.lang.NumberFormatException"/>
-    <fullyQualifiedTypeName name="java.io.FileReader"/>
     <fullyQualifiedTypeName name="java.awt.event.WindowEvent"/>
     <fullyQualifiedTypeName name="java.awt.event.WindowAdapter"/>
     <fullyQualifiedTypeName name="java.io.FileWriter"/>
@@ -52,12 +50,14 @@
     <fullyQualifiedTypeName name="java.sql.Timestamp"/>
     <fullyQualifiedTypeName name="data.dao.ShopDao"/>
     <fullyQualifiedTypeName name="java.lang.Integer"/>
+    <fullyQualifiedTypeName name="data.dto.TalentDto"/>
+    <fullyQualifiedTypeName name="com.mysql.cj.MysqlConnection"/>
     <fullyQualifiedTypeName name="db.common.MySqlConnect"/>
     <fullyQualifiedTypeName name="java.util.List"/>
-    <fullyQualifiedTypeName name="data.dto.ShopDto"/>
     <fullyQualifiedTypeName name="java.util.Vector"/>
+    <fullyQualifiedTypeName name="java.sql.ResultSet"/>
+    <fullyQualifiedTypeName name="data.dto.ShopDto"/>
+    <fullyQualifiedTypeName name="data.dto.SawonDto"/>
     <fullyQualifiedTypeName name="java.sql.Connection"/>
     <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
-    <fullyQualifiedTypeName name="java.sql.ResultSet"/>
-    <fullyQualifiedTypeName name="data.dto.TalentDto"/>
 </qualifiedTypeNameHistroy>

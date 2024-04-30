@@ -27,6 +27,10 @@
 	List <TalentDto> list=dao.getTalentDatas();
 %>
 <body>
+
+	<h5 class="alert alert-danger"><b>총 <%=list.size() %>개의 상품이 있습니다.</b></h5>
+	<table class="table table-bordered">
 	
+	</table>
 </body>
 </html>

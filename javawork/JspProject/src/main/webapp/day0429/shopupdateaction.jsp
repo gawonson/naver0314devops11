@@ -24,5 +24,7 @@
 	//update 메서드 호츨
 	dao.updateShop(dto);
 	//6. shoplist.jsp로 이동
-	response.sendRedirect("shoplist.jsp");//url 주소 바뀜
+	//response.sendRedirect("shoplist.jsp");//url 주소 바뀜
+	//detail 페이지로 이동하려면??
+	response.sendRedirect("shopdetail.jsp?shopidx="+shopidx);
 %>
