@@ -23,6 +23,7 @@
         	width: 400px;
         	height: 200px;
         }
+      
     </style>
     
 </head>
@@ -73,5 +74,6 @@
 			}
 		});
 	</script>
+	
 </body>
 </html>

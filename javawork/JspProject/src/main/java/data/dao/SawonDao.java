@@ -5,8 +5,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Vector;
+
+import com.mysql.cj.xdevapi.Result;
 
 import data.dto.SawonDto;
 
@@ -176,5 +180,77 @@ public class SawonDao {
 		}finally {
 			db.dbClose(pstmt, conn);
 		}
+	}
+	//성별 분석데이터 반환
+	public List<Map<String, String>> getGenderAnalysis(){
+		List<Map<String, String>> list=new Vector<Map<String,String>>();
+		
+		String sql="select gender,count(*) count, round(avg(age),1) age from mysawon group by gender";
+		
+		Connection conn=db.getConnection();
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		
+		try {
+			pstmt=conn.prepareStatement(sql);
+			rs=pstmt.executeQuery();
+			
+			while(rs.next()) {
+				
+				Map<String, String> map=new HashMap<String, String>();
+				String gender=rs.getString("gender");
+				String count=rs.getString("count");
+				String age=rs.getString("age");
+				
+				//map에 넣기
+				map.put("gender", gender);
+				map.put("count", count);
+				map.put("age", age);
+				
+				//list에 추가
+				list.add(map);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			db.dbClose(rs, pstmt, conn);
+		}
+		
+		
+		return list;
+	}
+	//부서별 분석데이터 반환
+	public List<Map<String , String>> getBuseoAnalysis(){
+		List<Map<String , String>> list=new Vector<Map<String, String>>();
+		Connection conn=db.getConnection();
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		String sql="select buseo, count(*) count, round(avg(age),1) age from mysawon group by buseo";
+		try {
+			pstmt=conn.prepareStatement(sql);
+			rs=pstmt.executeQuery();
+			
+			while(rs.next()) {
+				Map<String, String> map = new HashMap<String, String>();
+				String count=rs.getString("count");
+				String age=rs.getString("age");
+				String buseo=rs.getString("buseo");
+				
+				map.put("buseo", buseo);
+				map.put("count", count);
+				map.put("age", age);
+				
+				list.add(map);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			db.dbClose(rs, pstmt, conn);
+		}
+				
+				
+		return list;
 	}
 }
