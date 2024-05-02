@@ -22,7 +22,9 @@
     </style>
 </head>
 <%
+	
 	int num=Integer.parseInt(request.getParameter("num"));
+System.out.print(num);
 	StudentDao dao=new StudentDao();
 	StudentDto dto=dao.getData(num);
 %>
@@ -75,8 +77,7 @@
 		</tr>
 		<tr>
 			<td colspan="2" align="center">
-				<button type="submit" class="btn btn-outline-info" onclick="location.href='./updateaction.jsp">완료</button>
-				
+				<button type="submit" class="btn btn-outline-info">완료</button>
 			</td>
 		</tr>
 	</table>
