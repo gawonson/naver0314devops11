@@ -4,6 +4,7 @@
 	pageEncoding="UTF-8"%>
 <%
 request.setCharacterEncoding("utf-8");
+int num=Integer.parseInt(request.getParameter("num"));
 String name = request.getParameter("name");
 String blood = request.getParameter("blood");
 String lic = request.getParameter("license");
@@ -20,6 +21,7 @@ if (lic ==null) {
 
 StudentDto dto = new StudentDto();
 
+dto.setNum(num);
 dto.setName(name);
 dto.setBlood(blood);
 dto.setJava(java);

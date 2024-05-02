@@ -30,6 +30,18 @@
         	text-align: center
         }
     </style>
+     <script type="text/javascript">
+		$("#delstu").click(function(){
+			let name=$(this).attr("sname");
+			let num=$(this).attr("num");
+			console.log("d");
+			let a=confirm(`\${name} 학생정보를 삭제할까요?`)
+			if(a){
+				location.href="delete.jsp?num="+num;
+			}
+		})
+		
+	</script>
     
 </head>
 <%
@@ -44,6 +56,7 @@
 %>
 <body>
 <div style="width: 100%; height: 100%">
+<form action="./updateform.jsp">
  <table class="table table-striped" style="width: 350px ;height: 350px; border: 3px solid gray">
  	<caption align="top" style="text-align: center"><h3><b><%=dto.getName() %>님의 상세정보</b></h3> </caption>
  	<tr>
@@ -88,28 +101,16 @@
  		<th class="table-warning">평균</th>
  		<td><%=nf.format(avg)%>점</td>
  	</tr>
- 	
- </table>
- 
- </div>
+ 	<tr>
+ 		<td colspan="2">
  <button class="btn btn-outline-danger" onclick="location.href='./list.jsp'" style="margin-left: 20px">리스토로 이동</button>
  <button class="btn btn-outline-danger" onclick="location.href='./writeform.jsp'" >추가하기</button>
- <button class="btn btn-outline-danger" onclick="location.href='./updateform.jsp?num=<%=dto.getNum()%>'">수정하기</button>
+ <button type="button" class="btn btn-outline-danger" onclick="location.href='./updateform.jsp?num='+<%=dto.getNum()%>">수정하기</button>
  <button class="btn btn-outline-danger" id="delstu" num="<%=dto.getNum()%>" sname="<%=dto.getName()%>">삭제하기</button>
- 
-      <script type="text/javascript">
-		$("#delstu").click(function(){
-			let name=$(this).attr("sname");
-			let num=$(this).attr("num");
-			console.log("d");
-			let a=confirm(`\${name} 학생정보를 삭제할까요?`)
-			if(a){
-				location.href="delete.jsp?num="+num;
-			}
-		})
-		
-	</script>
- 
-
+ 		</td>
+ 	</tr>
+ </table>
+ </form> 
+ </div>
 </body>
 </html>
