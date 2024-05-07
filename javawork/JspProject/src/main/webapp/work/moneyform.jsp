@@ -1,4 +1,3 @@
-<%@page import="data.dto.moneyDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -58,19 +57,18 @@ body * {
 
 }
 .bottom{
-width:1525px;
-background-color:#e5e5e5;
-border-radius: 30px;
+		width:1525px;
+		background-color:#e5e5e5;
+		border-radius: 30px;
 }
-
-
 </style>
+
 </head>
+<%String name=request.getParameter("loginname");%>
 <body>
 	<div class="resultview">
-		
 		<button type="button" class="btn btn-outline-secondary" id="storage">통장내역보기</button>
-
+		<button type="button" class="btn btn-outline-danger" onclick="location.href='login.jsp'">로그아웃</button>
 		<!-- 통장내역 표시할 div -->
 		<div id="result"  style="background-color:#999999; border-radius:30px"></div>
 		<table class="table table-striped aa" style="width: 300px; border: 1px solid gray; display: none" >
@@ -80,10 +78,11 @@ border-radius: 30px;
 <div class="bottom">
 	<table class="writeform">
 		<caption align="top" style="text-align: center">
-			<h3>기록</h3>
+			<h3>반갑습니다 <%=name%>님 오늘의 기록을 남겨주세요</h3>
 		</caption>
 
 		<tr>
+		
 			<td  >입금액 <input type="number" name="deposit"
 				class="form-control" id="deposit" value="0" min="0" step="1000"></td>
 			<td>출금액 <input type="number" class="form-control"
@@ -112,8 +111,6 @@ border-radius: 30px;
 			<td><button type="button" id="addbtn"
 					class="btn btn-outline-secondary">출금 사유 추가하기</button></td>
 			<td></td>
-		
-			
 		</tr>
 	</table>
 	</div>
@@ -153,7 +150,7 @@ border-radius: 30px;
 			$("#addmoneytext").hide();
 			$(".addmoney").slideDown('fast');
 			}
-	})
+	});
 	//예상외 지출 $unexeppen을 누르면 지출내용 #addmoneytext 입력 창 나옴
 	$(".addmoney").change(function() {
 
@@ -167,7 +164,6 @@ border-radius: 30px;
 	//.addmoney적고 확인 누르면 .addmoneylist 나오게해서 tr추가	
 	$("#addlist").click(function() {
 			count++;
-		
 			deposit=$("#deposit").val();
 			withdraw=$("#withdraw").val();
 			foodexpentf = $(".foodexpen").is(":checked");
@@ -211,9 +207,6 @@ border-radius: 30px;
 
 			}
 			
-			
-			
-			
 			$(".aa").slideDown('slow');
 			$(".aa").append(
 					`<tr>
@@ -226,8 +219,6 @@ border-radius: 30px;
 					`)
 					
 		//중첩 더하기
-		
-		
 		totdeposit+=Number(deposit);
 		totwithdraw+=Number(withdraw);
 		//로컬스토리지에 저장
@@ -253,7 +244,7 @@ border-radius: 30px;
 		        // 새로운 div에 추가할 HTML 템플릿 생성
 		        let tableHtml = `
 		            <table class="table table-striped resultviewtable"  style="border: 1px solid gray;">
-		                <caption align="top" style="text-align:center"><h3><b>ㅇㅇㅇ님의 통장</h3></b></caption>
+		                <caption align="top" style="text-align:center"><h3><b><%=name%>님의 통장</h3></b></caption>
 		             
 		                <tr >
 		                    <td >입금액</td>
@@ -295,8 +286,6 @@ border-radius: 30px;
 		    });
 			
 	})
-	
-		
 	</script>
 </body>
 </html>
