@@ -23,7 +23,7 @@
 
 <%
 	SawonDao dao=new SawonDao();
-	List<Map<String, String>> list=dao.getBuseoAnalysis();
+	List<Map<String, String>> list=dao.getBuseoAlalysis();
 %>
 <body>
 <!-- 부서별 인원수와 평균연령 -->

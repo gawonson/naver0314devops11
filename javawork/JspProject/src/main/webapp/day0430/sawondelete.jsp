@@ -5,7 +5,7 @@
 request.setCharacterEncoding("utf-8");
 	int num=Integer.parseInt(request.getParameter("num")) ;
 	SawonDao dao=new SawonDao();
-	dao.deleteSawon(num);
+	dao.deletetSawon(num);
 	response.sendRedirect("sawonlist.jsp");
 	
 %>

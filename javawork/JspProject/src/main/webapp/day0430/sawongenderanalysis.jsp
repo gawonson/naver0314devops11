@@ -25,7 +25,7 @@
 	//dao 선언
 	SawonDao dao=new SawonDao();
 	//분석데이터 가져오기
-	List<Map<String, String>> list=dao.getGenderAnalysis();
+	List<Map<String, String>> list=dao.getGenderAlalysis();
 	
 %>
 

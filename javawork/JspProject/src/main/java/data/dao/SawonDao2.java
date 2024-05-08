@@ -12,7 +12,7 @@ import java.util.Vector;
 import data.dto.SawonDto;
 import db.common.MySqlConnect;
 
-public class SawonDao {
+public class SawonDao2 {
 	MySqlConnect db=new MySqlConnect();
 
 	//추가
