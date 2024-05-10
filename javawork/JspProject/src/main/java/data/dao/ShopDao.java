@@ -81,6 +81,52 @@ public class ShopDao {
 		}
 		return list;
 	}
+	//순서 변경하기
+	public List<ShopDto> getShopDatas(int idx){
+		
+		List<ShopDto> list=new Vector<ShopDto>();
+		Connection conn=null;
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		String sql="";
+		if(idx==1)
+			sql="select * from myshop order by shopidx asc";//등록순
+		else if(idx==2)
+			sql="select * from myshop order by sprice asc";//낮은가격순
+		else if(idx==3)
+			sql="select * from myshop order by sprice desc";//높은가격순
+		else
+			sql="select * from myshop order by sname asc";//상품명순
+		
+		conn=connect.getConnection();
+		try {
+			pstmt=conn.prepareStatement(sql);
+			rs=pstmt.executeQuery();
+			while(rs.next()) {
+				ShopDto dto=new ShopDto();
+				
+				dto.setShopidx(rs.getString("shopidx"));
+				dto.setSname(rs.getString("sname"));
+				dto.setSprice(rs.getInt("sprice"));
+				dto.setScount(rs.getInt("scount"));
+				dto.setScolor(rs.getString("scolor"));
+				dto.setSphoto(rs.getString("sphoto"));
+				dto.setWriteday(rs.getTimestamp("writeday"));
+				
+				
+				
+				//list 에 추가
+				list.add(dto);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			System.out.println("select 오류:"+e.getMessage());
+		}finally {
+			connect.dbClose(rs, pstmt, conn);
+			
+		}
+		return list;
+	}
 	public ShopDto getSangpum(int shopidx) {
 		Connection conn=null;
 		PreparedStatement pstmt=null;
