@@ -79,15 +79,6 @@
 	 	<a href="./list?currentPage=${endPage+1 }" style="text-decoration: none; color:black">&gt;</a>
 	 </c:if>
 </div>
-	<div>
-		<form action="">
-			<select>
-				<option name="sel">번호</option>
-				<option name="sel">제목</option>
-				<option name="sel">작성인</option>
-			</select> 
-				<input type="text">
-		</form>
-	</div>
+	
 </body>
 </html>

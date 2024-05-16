@@ -31,7 +31,16 @@
 			<fmt:formatDate value="${dto.writeday }" pattern="yyyy-MM-dd HH:mm:ss"/>
 		</td>
 	</tr>
-	<tr><td colspan="2" style="color:gray;" >조회수 : ${dto.readcount }</td></tr>
+	<tr>
+		<td colspan="2" style="color:gray;" >조회수 : ${dto.readcount }
+			<b style="margin-left: 10px; color:gray;">추천 &nbsp; 
+				<span class="chu">${dto.chu }&nbsp;</span>
+					<i class="bi bi-hand-thumbs-up mychu" style="font-size: 20px ; cursor: pointer"></i>
+				
+			</b>
+		</td>
+		
+	</tr>
 	<tr>
 		<td>
 			<img src="../image/s${dto.avata }.JPG" style="border-radius: 500px; border: 2px solid gray">
@@ -43,11 +52,36 @@
 	<tr>
 		<td colspan="2" style="text-align: center">
 			<button class="btn btn-success" onclick="location.href='./form'">글쓰기</button>
-			<button class="btn btn-success" onclick="location.href='./updateform?num=${dto.num}'">수정</button>
-			<button class="btn btn-success" onclick="location.href='./delete?num=${dto.num}'">삭제</button>
+			<button class="btn btn-success" onclick="location.href='./updateform?num=${dto.num}&currentPage=${currentPage }'">수정</button>
+			<button class="btn btn-success" onclick=del();>삭제</button>
 			<button class="btn btn-success" onclick="location.href='./list?currentPage=${currentPage}'">목록</button>
 		</td>
 	</tr>
 </table>
+<script type="text/javascript">
+	function del() {
+		let num=${dto.num};
+		let cp=${currentPage};
+		
+	let a=confirm("해당 게시글을 삭제하시겠습니까?");
+	if(a){
+		location.href=`./delete?num=\${num}&currentPage=\${cp}`;
+	}
+		
+	}
+	//chu 클릭시 숫자 증가
+	$(".mychu").click(function(){
+		let num=${dto.num};
+		$.ajax({
+			type:"get",
+			dataType:"json",
+			data:{"num":num},
+			url:"./updatechu",
+			success:function(data){
+				$("span.chu").text(data.chu);
+			}
+		})
+	})
+</script>
 </body>
 </html>
