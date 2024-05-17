@@ -19,38 +19,17 @@
    </style>
 </head>
 <body>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<%-- <h1>${msg }</h1>
-<h1>오늘 날짜</h1>
-<fmt:formatDate value="${today }" pattern="yyyy-MM-dd HH:mm"/>
-
-<h3>${dto1.sang }</h3>
-<img  src="./photo/${dto1.photo }" width="200" ><br>
-<h4>가격 : ${dto1.price }</h4>
-<h4>수량 : ${dto1.su }</h4>
-<h3>${dto2.sang }</h3>
-<img  src="./photo/${dto2.photo }" width="200" ><br>
-<h4>가격 : ${dto2.price }</h4>
-<h4>수량 : ${dto2.su }</h4> --%>
-
-
+<h2>매핑 주소에 대한 공부</h2>
+<ul>
+	<li>
+		<a href="./board/list">./board/list로 이동</a>
+	</li>
+	<li>
+		<a href="./board/list.do">./board/list.do로 이동</a>
+	</li>
+	<li>
+		<a href="./guest/list">./guest/list로 이동</a>
+	</li>
+</ul>
 </body>
 </html>

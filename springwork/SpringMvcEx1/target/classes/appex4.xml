@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+<!-- 생성자는 constructor 로 bean 추가  -->
+<!-- 생성자 객체는 ref 포함+ value 로 값 추가 -->
+<!-- setter는 property name=""찾고 value로 값 추가 -->
+
+<!-- <bean id="hello" class="anno.study.ex4.Hello"></bean>-->
+
+
+
+<!-- <bean id="ktire" class="anno.study.ex4.KoreaTire"/>
+<bean id="ctire" class="anno.study.ex4.CanadaTire"/>
+
+<bean id="car" class="anno.study.ex4.Car">
+	<constructor-arg ref="ktire"/>
+	<property name="carName" value="벤츠"/>
+</bean> -->
+
+
+
+<!-- 
+	annotation 사용시 해당 패키지 등록은 와일드카드 (*)사용 가능하고 [anno.study.ex4대신 a* or 첫 글자쓰고 * 붙이기]
+	여러패키지 등록시 (,)로 여러개 등록이 가능하다.
+ -->
+<context:component-scan base-package="anno.study.ex4"></context:component-scan>
+
+
+</beans>
