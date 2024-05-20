@@ -28,7 +28,6 @@ public class HomeController {
 		dto1.setSu(3);
 		
 		ShopDto dto2=new ShopDto("머리끈","26.jpg",9000,5);
-		
 		model.addAttribute("dto1",dto1);
 		model.addAttribute("dto2",dto2);
 		
@@ -48,11 +47,12 @@ public class HomeController {
 	//Model에 데이터를 저장하고 포워드 파일명을 리턴하는 두가지 방법
 	
 	@GetMapping("/board/list")//board/list.do 도 이게 호출됨
-	//하지만 @GetMappint("/board/list.do")라고 하면 정확하게 그 주소만 됨
+	//하지만 @GetMapping("/board/list.do")라고 하면 정확하게 그 주소만 됨
 	public String hello2(Model model) {
-		model.addAttribute("msg","안녕하세요 반가원");
+		model.addAttribute("msg","안녕하세요 반가원^^");
 		return "result1";
 	}
+	
 	@GetMapping("/guest/list")
 	public ModelAndView hello2() {
 		ModelAndView mview=new ModelAndView();
