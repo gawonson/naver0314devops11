@@ -70,6 +70,7 @@ public class UploadMultiController {
 			
 			
 		}
+	
 		//11. 출력에 필요한 것들 보내기
 		model.addAttribute("filelist",filelist);
 		model.addAttribute("title",title);
