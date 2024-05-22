@@ -24,6 +24,7 @@
 <span style="float: right;">
 	<button type="button" class="btn btn-sm btn-warning" onclick="location.href='./form'">멤버등록</button>
 </span></h2>
+<h3 style="margin-left:200px">회원 명단</h3>
 <table class="table table-bordered" style="width: 500px">
 	<tr>
 		<th class="table-warning">번호</th>
@@ -42,7 +43,7 @@
 			<td>${ele.myid }</td>
 			<td>${ele.hp }</td>
 			<td>
-				<button class="btn btn-sm btn-outline-warning">상세보기</button>
+				<button class="btn btn-sm btn-outline-warning" onclick="location.href='./detail?num=${ele.num}'">상세보기</button>
 			</td>
 		</tr>
 	</c:forEach>

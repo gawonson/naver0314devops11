@@ -20,7 +20,7 @@ public class MemberListController {
 	//@Autowired
 	@NonNull
 	private MemberService memberService;
-	
+
 	
 	@GetMapping("/list")//그럼 공통매핑 포함하여 /member/list라고 됨
 	public String list(Model model) 

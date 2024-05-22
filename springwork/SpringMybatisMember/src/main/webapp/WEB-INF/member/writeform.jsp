@@ -125,7 +125,8 @@ body * {
 			<tr>
 				<th width="100" class="table-warning">핸드폰</th>
 				<td  width="200" colspan="2">
-					<input type="number" name="hp" class="form-control" required="required" placeholder="숫자만 입력하세요">
+					<input type="tel" name="hp" class="form-control" required="required" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" placeholder="숫자만 입력하세요">
+					
 				</td>
 			</tr>
 			<tr>
