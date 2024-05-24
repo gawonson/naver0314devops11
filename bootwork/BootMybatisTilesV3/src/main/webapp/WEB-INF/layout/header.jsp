@@ -14,11 +14,14 @@
    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
    <style>
        body *{
-           font-family: 'Jua';
+          font-family: 'Jua';
        }
    </style>
 </head>
 <body>
-제목
+<c:set var="root" value="<%=request.getContextPath() %>"></c:set>
+<a href="${root }/">
+<img src="${root }/mycar/mycar13.png" width="60">
+스프링부트와 JSP를 이용한 프로젝트</a>
 </body>
 </html>

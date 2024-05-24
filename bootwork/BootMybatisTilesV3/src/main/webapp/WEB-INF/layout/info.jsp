@@ -19,6 +19,12 @@
    </style>
 </head>
 <body>
-info
+<c:set var="root" value="<%=request.getContextPath() %>"></c:set>
+<div style="cursor: pointer">
+
+<img  src="${root }/food/4.png">
+
+</div>
+
 </body>
 </html>

@@ -16,13 +16,37 @@
        body *{
            font-family: 'Jua';
        }
+       
    </style>
 </head>
 <body>
-<!-- ${pageContext.request.contextPath } : 절대주소 (매핑이 바뀌어도 절대주소이기때문에 고정되어있음} -->
-<img  src="<%=request.getContextPath() %>/mycar/mycar13.png" width="100">
-<h3 class="alert alert-success">
-	총 ${totalCount }명의 회원이 있습니다.
-</h3>
+<h2 class="alert" style="background-color: #87CEEB"  style="width: 100%">총${totalCount }명의 회원이 있습니다. 
+<span style="float: right;">
+	<button type="button" class="btn btn-sm btn-warning" onclick="location.href='./form'">멤버등록</button>
+</span></h2>
+<h3 style="margin-left: 500px">회원 명단</h3>
+<table class="table table-bordered" style="width: 100%">
+	<tr>
+		<th class="table-warning" style="background-color: #87CEEB">번호</th>
+		<th class="table-warning" style="background-color: #87CEEB">회원명</th>
+		<th class="table-warning" style="background-color: #87CEEB">아이디</th>
+		<th class="table-warning" style="background-color: #87CEEB">핸드폰</th>
+		<th class="table-warning" style="background-color: #87CEEB">상세보기</th>
+	</tr>
+	<c:forEach var="ele" items="${list }">
+		<tr>
+			<td>${ele.num }</td>
+			<td>
+				<img src="../save/${ele.photo }"  style="border: 1px solid black; border-radius: 30px; width: 30px ; height: 30px" onerror="this.src='../image/noimage2.png'">
+				${ele.name }
+			</td>
+			<td>${ele.myid }</td>
+			<td>${ele.hp }</td>
+			<td>
+				<button class="btn btn-sm btn-outline-warning" onclick="location.href='./detail?num=${ele.num}'">상세보기</button>
+			</td>
+		</tr>
+	</c:forEach>
+</table>
 </body>
 </html>

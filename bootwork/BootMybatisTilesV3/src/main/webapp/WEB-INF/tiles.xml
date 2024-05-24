@@ -12,3 +12,4 @@
 		<put-attribute name="main" value="/WEB-INF/{1}/{2}.jsp"></put-attribute>
 	</definition>
 </tiles-definitions>
+
