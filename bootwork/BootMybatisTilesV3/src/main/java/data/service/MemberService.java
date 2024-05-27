@@ -35,6 +35,10 @@ public class MemberService {
 		
 		return memInter.detailMember(num);
 	}
+	public MemberDto detailMember2(String myid)
+	{
+		return memInter.detailMember2(myid);
+	};
 	public void updatePhoto(int num, String photo) {
 		Map<String, Object> map=new HashMap<>();
 		map.put("num", num);
@@ -57,5 +61,8 @@ public class MemberService {
 	public void deleteMember(int num) {
 		memInter.deleteMember(num);
 	}
-	
+	public boolean isLoginCheck(String myid,String pass)
+	{
+		return memInter.isLoginCheck(myid, pass)==1?true:false;
+	}
 }

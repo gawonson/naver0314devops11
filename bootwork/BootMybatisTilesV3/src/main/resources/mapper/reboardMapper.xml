@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="data.mapper.ReBoardMapperInter"><!-- reboard로 id값 따라서 자동으로 들어감 -->
+<!-- num 값 null이면 다른 변수들에게 +1이 안되니까 null일 경우에 0 넣어주고 아니면 값 구하기 -->
+	<select id="getMaxNum" resultType="int">
+		select ifnull(max(num),0) from reboard
+	</select>
+	<!-- step: 엄마 글 아래 달릴 순서?? // 엄마글의 num 이 넘어오고 1 번으로 가는데 나머지 +1 해서 1로 만들기
+				( 글의 순서이기때문에 1이 겹쳐져서는 안됨 + 답글 단 댓글+1)
+				엄마글이 같고, 새로운 글에 restep은 전달받은 restep에 +1 해주고 
+	  -->
+	<update id="updateRestep" parameterType="Map">
+		<!--update reboard set restep=restep+1 where regroup=#{regroup} and restep>#{restep}  -->
+		update reboard set restep=restep+1 where regroup=#{regroup} and restep&gt;#{restep}
+	</update>
+	<!-- 그냥 넣기 -->
+	<insert id="insertBoard" parameterType="ReBoardDto">
+		insert into reboard (writer,myid,subject,uploadphoto,content,regroup,restep,relevel,writeday) values 
+		(#{writer},#{myid},#{subject},#{uploadphoto},#{content},#{regroup},#{restep},#{relevel},now())
+		<!-- 방금 넣은것까지 추가해서 마지막 num 구해야함 -->
+		<selectKey keyProperty="num" resultType="int" order="AFTER">
+			SELECT LAST_INSERT_ID()
+		</selectKey>
+	</insert>
+	<!-- number 구하기   -->
+	<select id="getTotalCount" resultType="int">
+		select count(*) from reboard
+	</select>
+	<select id="getPagingList" resultType="ReBoardDto" parameterType="Map">
+		select * from reboard order by regroup desc, restep asc limit #{start},#{perpage}<!-- limit 다음은 0,5 .. 시작 (,) 끝 나타냄 -->
+	</select>
+	<update id="updateReadcount" parameterType="int">
+		update reboard set readcount=readcount+1 where num=#{num}
+	</update>
+	<select id="getData" parameterType="int" resultType="ReBoardDto">
+		select * from reboard where num=#{num}
+	</select>
+</mapper>  

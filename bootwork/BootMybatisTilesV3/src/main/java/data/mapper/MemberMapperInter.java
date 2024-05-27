@@ -24,11 +24,15 @@ public interface MemberMapperInter {
 			insert into memberdb(name,myid,passwd,addr,hp,email,photo,birthday,gaipday) values(#{name},#{myid},#{passwd},#{addr},#{hp},#{email},#{photo},#{birthday},now())
 			""")
 	public void insertMember(MemberDto dto);
+	
 	@Select("select * from memberdb order by num asc")
 	public List<MemberDto> getAllMembers();
 	
 	@Select("select * from memberdb where num=#{num}")
 	public MemberDto detailMember(int num);
+	
+	@Select("select * from memberdb where myid=#{myid}")
+	public MemberDto detailMember2(String myid);
 	
 	@Update("update memberdb set photo=#{photo} where num=#{num}")
 	public void updatePhoto(Map<String, Object> map);
@@ -38,8 +42,11 @@ public interface MemberMapperInter {
 	
 	@Delete("delete from memberdb where num=#{num}")
 	public void deleteMember(int num);
-	
-	@Select("select count(*) from memberdb where passwd=#{passwd}")
+	//삭제할때 아이디확인
+	@Select("select count(*) from memberdb where num=#{num} and passwd=#{passwd}")
 	public boolean isEqualId(Map<String, Object> check);
 	
+	//로그인 시키기 1: 있음 0: 없는 회원
+	@Select("select count(*) from memberdb where myid=#{myid} and passwd=#{pass}")
+	public int isLoginCheck(String myid,String pass);
 }

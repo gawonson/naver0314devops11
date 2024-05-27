@@ -41,7 +41,7 @@ public class MemberUpdateController {
 		//업로드될 경로
 		String savePath=request.getSession().getServletContext().getRealPath("/save");
 		//확장자 분리
-		String ext=upload.getOriginalFilename().split("\\.")[1];
+		String ext=upload.getOriginalFilename().split("\\.")[1];//split 사용하면 list로 받아야함
 
 		//업로드할 파일명
 		String photo=UUID.randomUUID()+"."+ext;
@@ -80,7 +80,9 @@ public class MemberUpdateController {
 	}
 	@ResponseBody
 	@GetMapping("/delete")
-	public Map<String, String> deleteMember( @RequestParam int num,@RequestParam String passwd) {
+	public Map<String, String> deleteMember( 
+			@RequestParam int num,
+			@RequestParam String passwd) {
 		
 		Map<String, String> list=new HashMap<>();
 		boolean b=memberService.isEqualPassCheck(num, passwd);

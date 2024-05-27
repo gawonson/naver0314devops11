@@ -18,13 +18,17 @@
        }
        
    </style>
+
 </head>
 <body>
-<h2 class="alert" style="background-color: #87CEEB"  style="width: 100%">총${totalCount }명의 회원이 있습니다. 
+<h2 class="alert" style="background-color: #87CEEB ; width: 100%; text-align: center"  >총${totalCount }명의 회원이 있습니다. 
 <span style="float: right;">
 	<button type="button" class="btn btn-sm btn-warning" onclick="location.href='./form'">멤버등록</button>
 </span></h2>
+<!-- admin 계정으로 로그인시에만 전체 명단을 확인할 수 있다. -->
+<c:if test="${sessionScope.loginok!=null and sessionScope.loginid=='admin' }">
 <h3 style="margin-left: 500px">회원 명단</h3>
+
 <table class="table table-bordered" style="width: 100%">
 	<tr>
 		<th class="table-warning" style="background-color: #87CEEB">번호</th>
@@ -48,5 +52,9 @@
 		</tr>
 	</c:forEach>
 </table>
+</c:if>
+<c:if test="${sessionScope.loginok!=null and sessionScope.loginid!='admin' }">
+	<h2><b>전체 회원 명단은 관리자 계정만 확인이 가능합니다.</b></h2>
+</c:if>
 </body>
 </html>
