@@ -19,11 +19,12 @@
    </style>
 </head>
 <body>
+
+<h5>총 ${totalCount }개의 글이 있습니다.</h5>
 <!-- 글쓰기 버튼은 로그인을 해야만 보인다. -->
 <c:if test="${sessionScope.loginok!=null }">
 	<button type="button" class="btn btn-outline-success" style="width: 100px;margin-left: 100px" onclick="location.href='./form'">글쓰기</button>
 </c:if>
-<h5>총 ${totalCount }개의 글이 있습니다.</h5>
 <table class="table table-striped" style="width: 600px;">
 	<tr class="table" style="">
 		<th width="50">번호</th>
@@ -47,15 +48,18 @@
 				<c:set var="no" value="${no-1 }"/>
 			</td>
 			<td><!-- 제목 -->
-				<a href="./detail?num=${dto.num }">
+				<a href="./detail?num=${dto.num }&currentPage=${currentPage}">
 					<!-- relevel 한개당 두칸 띄우기 -->
 					<c:forEach begin="1" end="${dto.relevel }">&nbsp;&nbsp;</c:forEach>
 					<!-- 답글일경우 답글 이미지 -->
 					<c:if test="${dto.restep>0 }">
 						<img src="../image/re.png">
-					</c:if>
-					<!-- 제목 -->
+					</c:if><!-- 제목 -->
 					${dto.subject }
+					<c:if test="${dto.uploadphoto!='no'}">
+						<i class="bi bi-image" style="color:gray"></i>
+					</c:if>
+					
 				</a>
 			</td>
 			<td>

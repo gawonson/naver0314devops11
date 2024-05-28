@@ -10,20 +10,15 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
+@Data
 @AllArgsConstructor
 @Builder
-@Data
-@Alias("ReBoardDto")
-public class ReBoardDto {
+@Alias("badto")
+public class BoardAnswerDto {
+	private int aidx;
 	private int num;
 	private String writer;
 	private String myid;
-	private String subject;
-	private String uploadphoto;
 	private String content;
-	private int readcount;
-	private int regroup;
-	private int restep;
-	private int relevel;
 	private Timestamp writeday;
 }

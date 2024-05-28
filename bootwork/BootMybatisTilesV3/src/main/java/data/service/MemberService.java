@@ -24,13 +24,13 @@ public class MemberService {
 	public int getIdCheckCount(String searchid) {
 		
 		return memInter.getIdCheckCount(searchid);
-	};
+	}
 	public void insertMember(MemberDto dto) {
 		memInter.insertMember(dto);
-	};
+	}
 	public List<MemberDto> getAllMembers(){
 		return memInter.getAllMembers();
-	};
+	}
 	public MemberDto detailMember(int num) {
 		
 		return memInter.detailMember(num);
@@ -38,13 +38,13 @@ public class MemberService {
 	public MemberDto detailMember2(String myid)
 	{
 		return memInter.detailMember2(myid);
-	};
+	}
 	public void updatePhoto(int num, String photo) {
 		Map<String, Object> map=new HashMap<>();
 		map.put("num", num);
 		map.put("photo", photo);
 		memInter.updatePhoto(map);
-	};
+	}
 	public void updateinfo(MemberDto dto) {
 		memInter.updateForm(dto);
 	}
