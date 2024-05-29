@@ -19,4 +19,6 @@ public interface BoardAnswerMapperInter {
 	
 	@Delete("delete from boardanswer where aidx=#{aidx}")
 	public void deleteAnswer(int aidx);
+	
+	
 }

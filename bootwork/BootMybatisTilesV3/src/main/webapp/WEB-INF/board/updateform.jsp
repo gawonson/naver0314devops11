@@ -17,6 +17,7 @@
            font-family: 'Jua';
        }
    </style>
+   <c:set var="stpath" value="https://kr.object.ncloudstorage.com/bitcamp-bucket-56/photocommon"/>
 </head>
 <c:if test="${sessionScope.loginok==null }">
 	<script type="text/javascript">
@@ -62,7 +63,7 @@
 		</tr>
 	</table>
 	<div style="position:absolute; top: 100px; left: 430px ; border: 2px solid gray">
-		<img src="../save/${dto.uploadphoto }" id="showimg1" style="width: 200px"
+		<img src="${stpath }/${dto.uploadphoto }" id="showimg1" style="width: 200px"
 			onerror="../image/noimage2.png">
 	</div>
 </form>

@@ -1,8 +1,11 @@
 package controller.board;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -12,7 +15,7 @@ import data.dto.BoardAnswerDto;
 import data.service.BoardAnswerService;
 import data.service.MemberService;
 @RequestMapping("/board")
-@RestController//전부다 responsebody 붙인격
+@RestController//전부다 responsebody 붙인격 전부다 ajax이용한다는 뜻
 public class BoardAnswerController {
 	@Autowired
 	private BoardAnswerService answerService;
@@ -36,4 +39,18 @@ public class BoardAnswerController {
 		//db insert
 		answerService.insertAnswer(dto);
 	};
-}
+	
+	@GetMapping("/alist")
+	public List<BoardAnswerDto> alist(@RequestParam int num)
+	{
+		return answerService.getAnswerData(num);
+	}
+	
+	@GetMapping("/deleteanswer")
+	public void deleteAnswer(@RequestParam int aidx)
+	{
+		answerService.deleteAnswer(aidx);
+	}
+		
+	
+};

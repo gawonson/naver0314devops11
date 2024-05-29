@@ -26,7 +26,6 @@ public class LoginController {
 			HttpSession session
 			)
 	{
-		System.out.println("saveid:"+saveid);
 		Map<String, String> map=new HashMap<>();
 		//로그인 상태
 		boolean loginStatus=memberService.isLoginCheck(myid, pass);

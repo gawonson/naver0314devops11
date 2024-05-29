@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import data.dto.MemberDto;
 import data.service.MemberService;
+import naver.cloud.NcpObjectStorageService;
 
 
 
@@ -25,6 +26,13 @@ import data.service.MemberService;
 public class MemberFormController {
 	@Autowired
 	private MemberService memberService;
+	
+	private String bucketName="bitcamp-bucket-56";
+	private String folderName="photocommon";
+	@Autowired
+	private NcpObjectStorageService storageService;
+	
+	
 	@GetMapping("/member/form")
 	public String form() {
 		return "member/memberform";
@@ -48,21 +56,20 @@ public class MemberFormController {
 			@RequestParam("myfile") MultipartFile myfile,
 			HttpServletRequest request
 			) {
-		//업로드될 경로
-		String savePath=request.getSession().getServletContext().getRealPath("/save");
-		//확장자 분리
-		String ext=myfile.getOriginalFilename().split("\\.")[1];
-		dto.setPhoto(ext);
-		//업로드할 파일명
-		String photo=UUID.randomUUID()+"."+ext;
-		dto.setPhoto(photo);
-		//실제 업로드
-		try {
-			myfile.transferTo(new File(savePath+"/"+photo));
-		} catch (IllegalStateException | IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+				/*
+				 * //업로드될 경로 String
+				 * savePath=request.getSession().getServletContext().getRealPath("/save"); //확장자
+				 * 분리 String ext=myfile.getOriginalFilename().split("\\.")[1];
+				 * dto.setPhoto(ext); //업로드할 파일명 String photo=UUID.randomUUID()+"."+ext;
+				 * dto.setPhoto(photo); //실제 업로드 try { myfile.transferTo(new
+				 * File(savePath+"/"+photo)); } catch (IllegalStateException | IOException e) {
+				 * // TODO Auto-generated catch block e.printStackTrace(); }
+				 */
+		
+		//스토리지에 업로드하기
+		String photo=storageService.uploadFile(bucketName, folderName, myfile);
+		dto.setPhoto(photo);//업로드된 uuid 파일명을 dto에 저장
+		
 		//db에 저장
 		memberService.insertMember(dto);
 		

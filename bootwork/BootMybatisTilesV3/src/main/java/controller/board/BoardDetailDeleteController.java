@@ -30,7 +30,7 @@ public class BoardDetailDeleteController {
 		//해당 아이디가 같고있는 프로핑 사진
 		
 		String profile_photo= memberService.detailMember2(dto.getMyid()).getPhoto();
-		System.out.println(profile_photo);
+
 		model.addAttribute("profile_photo",profile_photo);
 		model.addAttribute("currentPage",currentPage);
 		model.addAttribute("dto",dto);
