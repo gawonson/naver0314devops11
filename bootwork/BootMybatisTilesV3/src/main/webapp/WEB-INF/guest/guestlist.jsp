@@ -105,12 +105,8 @@ function guest_list()
 						  onclick="large_photo('\${ele.writer}','\${sphoto}')">`
 					  })
 				  }
-				   
 				   s+=`
-					   	
 					   </div>`
-				   
-			   
 			   })
 			   
 			   

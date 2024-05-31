@@ -61,7 +61,7 @@ public class GuestAjaxController {
 		if(upload==null)
 			return;
 		
-		
+			
 		//파일 선택했을때
 		for(MultipartFile mfile:upload) {
 			//스토리지에 저장 후 파일명 얻기
