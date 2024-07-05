@@ -47,7 +47,7 @@
                 <!--    썸네일 이미지 넣기        -->
                 <img th:src="@{https://rittbvra3706.edge.naverncp.com/CkpFfqomNo/mycar/{photo}?type=f&w=40&h=40&faceopt=true&ttype=jpg(photo=${dto.carphoto})}"
                      hspace="10" border="1">
-                [[${dto.carname}]]<span th:if="${dto.commentcount!=0}"><i class="bi bi-chat"></i>[[${dto.commentcount}]]</span></a>
+                [[${dto.carname}]]<span style="float:right" th:if="${dto.commentcount!=0}"><i class="bi bi-chat">&nbsp;</i>[[${dto.commentcount}]]</span></a>
         </td>
         <td align="right" th:text="${#numbers.formatInteger(dto.carprice,0,'COMMA')}"></td>
         <td align="center">
