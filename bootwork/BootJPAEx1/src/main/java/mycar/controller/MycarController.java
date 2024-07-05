@@ -130,7 +130,7 @@ public class MycarController {
         Pageable pageable= PageRequest.of(0,pageSize, Sort.by("num").ascending());
 
         Page<MycarDto> result=mycarDao.getAllCars(pageable);
-        List<MycarDto> list=mycarDao.getAllCars();
+//        List<MycarDto> list=mycarDao.getAllCars();
 
         model.addAttribute("totalCount",result.getTotalElements());//총 갯수
         model.addAttribute("totalPage",result.getTotalPages());//총 페이지 수
