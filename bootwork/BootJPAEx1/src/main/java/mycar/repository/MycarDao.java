@@ -15,6 +15,8 @@ public class MycarDao {
 
     private MyCarDaoInter daoInter;
     private MycarCommentDaoInter daocommnetInter;
+
+
     //db저장
     public void insertcar(MycarDto dto){
         daoInter.save(dto);//Id type(num) 이 포함되어있을경우 자동으로 update 실행, 없을경우 자동으로 insert 싫행
