@@ -20,11 +20,8 @@ const FiveApp =()=>{
     const [mycarlist,setMycarList]=useState([]);
     //백엔드에서 mycar 목록을 가져온다
     const list =()=>{
-        Axios.get("/mycar/list")
-        .then(res=>{
-            setMycarList(res.data);
-        })
-    }
+        Axios.get("/mycar/list").then(res=>{setMycarList(res.data);}
+    )}
     //처음 로딩시 목록을 가져온다
     useEffect(()=>{
         list();
