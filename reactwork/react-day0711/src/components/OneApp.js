@@ -56,7 +56,7 @@ const OneApp = () => {
   
     return(
         <div>
-            <h1>OneApp-모든 입력값 하나의 변수에 넣기</h1>
+            <h1>OneApp-모든 입력값 하나의 변수에 넣기/객체 배열 출력-tr의 row span</h1>
             <table className="table table-bordered" style={{width:'300px'}}>
                 <tbody>
                     <tr>
