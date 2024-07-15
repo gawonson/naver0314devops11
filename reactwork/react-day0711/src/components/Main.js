@@ -32,7 +32,7 @@ const Main=()=>{
                 </label>
                 <br/>
                 <label>
-                    <input type="radio" name="app" defaultValue={1} onClick={chageApp}  value={5}/>Root
+                    <input type="radio" name="app" defaultValue={1} onClick={chageApp} value={5}/>Root
                 </label>
                 <br/>
                 <label>
