@@ -21,6 +21,19 @@ const Menu =()=>{
             <li>
                 <NavLink to={"/sweet"}>SweetAlert</NavLink>
             </li>
+            <li>
+                <NavLink to={"/reducer1"}>ReducerComp1</NavLink>
+            </li>
+            <li>
+                <NavLink to={"/reducer2"}>ReducerComp2</NavLink>
+            </li>
+            <li>
+                <NavLink to={"/usememo"}>usememo</NavLink>
+            </li>
+            <li>
+                <NavLink to={"/callback"}>callback</NavLink>
+            </li>
+       
         </ul>
     )
 }
