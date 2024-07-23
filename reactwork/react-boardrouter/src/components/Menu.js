@@ -1,4 +1,5 @@
-import { NavLink } from "react-router-dom";
+import { Button } from "@mui/material";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const Menu =()=>{
     return(
@@ -32,6 +33,23 @@ const Menu =()=>{
             </li>
             <li>
                 <NavLink to={"/callback"}>callback</NavLink>
+            </li>
+            <li>
+                <NavLink to={"/member/list"}>회원목록</NavLink>
+            </li>
+            <li>
+                <NavLink to={"/member/form"}>회원가입</NavLink>
+            </li>
+            <li>
+                {
+                    sessionStorage.token==null?
+                    <NavLink to={"/login"}>로그인</NavLink>
+                    :
+                    <Button variant="contained" color="error" onClick={()=>{
+                        sessionStorage.removeItem("token");
+                        window.location.reload();
+                    }}>로그아웃</Button>
+                }
             </li>
        
         </ul>

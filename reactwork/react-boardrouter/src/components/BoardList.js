@@ -15,6 +15,7 @@ const BoardList =()=>{
 
     const [boardList,setBoardList]=useState([]);
     const storage=process.env.REACT_APP_STORAGE;
+
     const getDataList =()=>{
         axios.post("/boot/board/list")
         .then(res=>{
@@ -32,6 +33,7 @@ const BoardList =()=>{
 
     return(
         <div style={{width:'600px'}}>
+           
             <Alert>총 {boardList.length}개의 게시물이있습니다</Alert>
             <table className="table table-striped">
                 <thead>
@@ -73,6 +75,7 @@ const BoardList =()=>{
                                     />
 
             </footer>
+            
         </div>
     )
 }
